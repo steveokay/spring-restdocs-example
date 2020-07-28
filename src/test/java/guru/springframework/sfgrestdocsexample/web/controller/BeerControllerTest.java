@@ -58,7 +58,7 @@ class BeerControllerTest {
                 .param("iscold", "yes") // request params added at end of url
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andDo(document("v1/beer",
+                .andDo(document("v1/beer-get",
                         pathParameters(
                             parameterWithName("beerId").description("UUID of desired beer to fetch.")
                         ),
@@ -91,7 +91,7 @@ class BeerControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(beerDtoJson))
                 .andExpect(status().isCreated())
-                .andDo(document("v1/beer",
+                .andDo(document("v1/beer-new",
                         requestFields(
                                 //fieldWithPath("id").ignored(),
                                 fields.withPath("id").ignored(),
